@@ -1,0 +1,36 @@
+<p>UserList works!</p>
+<div class="container">
+  <table class="table table-striped">
+
+    <tbody >
+      <th>UserID</th>
+    <th>User Name</th>
+    <th>User Surname</th>
+    <th>User Pincode</th>
+    <th>User Dob</th>
+    <th>User joiningDate</th>
+
+    <th>OPERATIONS</th>
+
+      <tr *ngFor='let p of plist|async'>
+        <td>{{p.userid}}</td>
+        <td>{{p.name}}</td>
+        <td> {{p.surname}} </td>
+        <td> {{p.pincode}} </td>
+        <td>{{p.dob}}</td>
+        <td>{{p.joiningDate}}</td>
+        <td><a [routerLink]="['userdetails',p.userid]">show details</a></td>
+        <td><a class="btn" (click)= "edit(p)" >
+          <i class="fa fa-edit"></i>
+        </a>
+
+
+        <a class="btn" (click)="delete(p.userid)">
+          <i class="fa fa-trash"></i>
+        </a>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>
+
